@@ -89,11 +89,18 @@ export default function ProductsPage() {
       <div className="cart">
         <h2>Cart</h2>
         {cartItems.length > 0 ? (
-          <ul>
+          <div className="product-list">
             {cartItems.map((item) => (
-              <li key={item.id}>{item.name}</li>
+              <div key={item.id} className="product-card">
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>Category: {item.category}</p>
+              <p>Season: {item.season}</p>
+              <p>Dietary Preference: {item.dietaryPreference}</p>
+              <p>Meal: {item.meal}</p>
+            </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>Your cart is empty.</p>
         )}
